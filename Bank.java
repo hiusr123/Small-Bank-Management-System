@@ -135,6 +135,7 @@ public class Bank implements Serializable {
     public boolean getUserLevel(int index){
         if (index < 0 || index >= users.size()){
             System.out.println("Cannot access that user");
+            return false;
         }
         return users.get(index).getLevel();
     }
@@ -189,8 +190,8 @@ public class Bank implements Serializable {
             System.out.println("Cannot get that user");
             return false;
         }
-        if (balance < 0){
-            System.out.println("Cannot be negative number");
+        if (balance <= 0){
+            System.out.println("Cannot be negative number or zero");
             return false;
         }
         if (selfIndex == targetIndex){
@@ -248,3 +249,4 @@ public class Bank implements Serializable {
         }
     }
 }
+
